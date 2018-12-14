@@ -22,10 +22,10 @@ const GraphInput = ({ graph, config, setGraph, setConfig }) => {
       >
         OK
       </button>
-      <textarea value={value2} onChange={e => setValue2(e.target.value2)} />
+      <textarea value={value2} onChange={e => setValue2(e.target.value)} />
       <button
         onClick={() =>
-          isValidJson(value2) ? setGraph(JSON.parse(value2)) : ""
+          isValidJson(value2) ? setConfig(JSON.parse(value2)) : ""
         }
       >
         OK
