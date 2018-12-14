@@ -9,13 +9,24 @@ function isValidJson(str) {
   return true;
 }
 
-const GraphInput = ({ graph, setGraph }) => {
-  const [value, setValue] = useState(JSON.stringify(graph, null, "  "));
+const GraphInput = ({ graph, config, setGraph, setConfig }) => {
+  const [value1, setValue1] = useState(JSON.stringify(graph, null, "  "));
+  const [value2, setValue2] = useState(JSON.stringify(config, null, "  "));
   return (
     <div className="child-container">
-      <textarea value={value} onChange={e => setValue(e.target.value)} />
+      <textarea value={value1} onChange={e => setValue1(e.target.value)} />
       <button
-        onClick={() => (isValidJson(value) ? setGraph(JSON.parse(value)) : "")}
+        onClick={() =>
+          isValidJson(value1) ? setGraph(JSON.parse(value1)) : ""
+        }
+      >
+        OK
+      </button>
+      <textarea value={value2} onChange={e => setValue2(e.target.value2)} />
+      <button
+        onClick={() =>
+          isValidJson(value2) ? setGraph(JSON.parse(value2)) : ""
+        }
       >
         OK
       </button>

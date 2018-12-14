@@ -2,12 +2,13 @@ import React, { useEffect } from "react";
 import { select } from "d3-selection";
 import * as d3 from "d3";
 
-const renderD3Content = (svg, data) => {
+const renderD3Content = (svg, data, config) => {
   select(svg)
     .selectAll("rect")
     .data(data.nodes, d => d.id)
     .enter()
-    .append("rect");
+    .append("rect")
+    .classed("node", true);
 
   select(svg)
     .selectAll("rect")
@@ -21,24 +22,21 @@ const renderD3Content = (svg, data) => {
     .selectAll("rect")
     .data(data.nodes, d => d.id)
     .attr("id", d => "node" + d.id)
-    .style("fill", "#f5f5f5")
-    .style("stroke", "000000")
-    .style("stroke-width", "1px")
     .transition()
     .duration(500)
     .attr(
       "x",
-      (d, i) => data.origin.x + i * data.nodeSize.x + i * data.margin.x
+      (d, i) => config.origin.x + i * config.nodeSize.x + i * config.margin.x
     )
-    .attr("y", data.origin.y)
+    .attr("y", config.origin.y)
     .attr("rx", 5)
-    .attr("height", data.nodeSize.y)
-    .attr("width", data.nodeSize.x);
+    .attr("height", config.nodeSize.y)
+    .attr("width", config.nodeSize.x);
 };
 
-const D3Graph = ({ graph }) => {
+const D3Graph = ({ graph, config }) => {
   useEffect(() => {
-    renderD3Content("#d3svg", graph);
+    renderD3Content("#d3svg", graph, config);
   });
 
   return (
@@ -46,8 +44,8 @@ const D3Graph = ({ graph }) => {
       <svg
         id="d3svg"
         className="svg"
-        width={graph.width}
-        height={graph.height}
+        width={config.width}
+        height={config.height}
       />
     </div>
   );
