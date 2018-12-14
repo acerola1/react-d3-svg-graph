@@ -1,0 +1,28 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.child-container {
+  flex: 1 1 0;
+  display: flex;
+}
+
+.demo-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
