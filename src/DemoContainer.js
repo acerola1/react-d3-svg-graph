@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import GraphInput from "./GraphInput";
-import D3GraphComponent from "./D3GraphComponent";
+import D3Graph from "./D3Graph";
 import ReactGraph from "./ReactGraph";
 
 const initialGraph = {
@@ -20,7 +20,7 @@ const DemoContainer = () => {
   return (
     <div className="demo-container">
       <GraphInput {...childProps} setGraph={setGraph} />
-      <D3GraphComponent {...childProps} />
+      <D3Graph {...childProps} />
       <ReactGraph {...childProps} />
     </div>
   );

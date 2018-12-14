@@ -1,21 +1,21 @@
 import React from "react";
-import { select } from "d3-selection";
+import * as d3 from "d3";
 
 const renderD3Content = (svg, data) => {
-  console.log(data.nodes);
-  let nodes = select(svg)
+  console.log("data", data);
+  svg
     .selectAll("rect")
     .data(data.nodes)
     .enter()
     .append("rect");
 
-  select(svg)
+  svg
     .selectAll("rect")
     .data(data.nodes)
     .exit()
     .remove();
 
-  select(svg)
+  svg
     .selectAll("rect")
     .data(data.nodes)
     .attr("id", d => "node" + d.id)
@@ -34,11 +34,20 @@ const renderD3Content = (svg, data) => {
 
 class D3GraphComponent extends React.Component {
   componentDidMount() {
-    renderD3Content("#d3svg", this.props.graph);
+    this.svg = d3
+      .select("#d3-svg-cont")
+      .append("svg")
+      .attr("id", "d3svg")
+      .classed("svg", true)
+      .attr("height", this.props.graph.height)
+      .attr("width", this.props.graph.width);
+    renderD3Content(this.svg, this.props.graph);
   }
 
-  componentWillReceiveProps() {
-    renderD3Content("#d3svg", this.props.graph);
+  componentWillReceiveProps(nextProps) {
+    console.log("nextProps", nextProps.graph.nodes);
+
+    renderD3Content(this.svg, nextProps.graph);
   }
 
   shouldComponentUpdate() {
@@ -47,16 +56,7 @@ class D3GraphComponent extends React.Component {
 
   render() {
     let { graph } = this.props;
-    return (
-      <div className="child-container svg-container">
-        <svg
-          id="d3svg"
-          className="svg"
-          width={graph.width}
-          height={graph.height}
-        />
-      </div>
-    );
+    return <div id="d3-svg-cont" className="child-container svg-container" />;
   }
 }
 
