@@ -1,27 +1,31 @@
 import React, { useEffect } from "react";
 import { select } from "d3-selection";
+import * as d3 from "d3";
 
 const renderD3Content = (svg, data) => {
-  console.log(data.nodes);
-  let nodes = select(svg)
+  select(svg)
     .selectAll("rect")
-    .data(data.nodes)
+    .data(data.nodes, d => d.id)
     .enter()
     .append("rect");
 
   select(svg)
     .selectAll("rect")
-    .data(data.nodes)
+    .data(data.nodes, d => d.id)
     .exit()
+    .transition()
+    .style("opacity", 0)
     .remove();
 
   select(svg)
     .selectAll("rect")
-    .data(data.nodes)
+    .data(data.nodes, d => d.id)
     .attr("id", d => "node" + d.id)
     .style("fill", "#f5f5f5")
     .style("stroke", "000000")
     .style("stroke-width", "1px")
+    .transition()
+    .duration(500)
     .attr(
       "x",
       (d, i) => data.origin.x + i * data.nodeSize.x + i * data.margin.x
