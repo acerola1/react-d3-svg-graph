@@ -1,23 +1,25 @@
 import React, { useEffect } from "react";
-import { select } from "d3-selection";
+import * as d3 from "d3";
 
-const renderD3Content = (svg, data) => {
-  console.log(data.nodes);
-  let nodes = select(svg)
-    .selectAll("rect")
-    .data(data.nodes)
-    .enter()
-    .append("rect");
+const renderD3Content = (svgCont, data) => {
+  console.log(d3.select(svgCont));
+  let svg = d3
+    .select(svgCont)
+    .select("svg")
 
-  select(svg)
-    .selectAll("rect")
-    .data(data.nodes)
-    .exit()
-    .remove();
+    .append("svg")
+    .attr("id", "d3svg")
+    .classed("svg", true)
+    .attr("height", data.height)
+    .attr("width", data.width);
 
-  select(svg)
-    .selectAll("rect")
-    .data(data.nodes)
+  let nodes = svg.selectAll("rect").data(data.nodes);
+
+  nodes.enter().append("rect");
+
+  nodes.exit().remove();
+
+  nodes
     .attr("id", d => "node" + d.id)
     .style("fill", "#f5f5f5")
     .style("stroke", "000000")
@@ -34,19 +36,10 @@ const renderD3Content = (svg, data) => {
 
 const D3Graph = ({ graph }) => {
   useEffect(() => {
-    renderD3Content("#d3svg", graph);
+    renderD3Content("#d3-svg-cont", graph);
   });
 
-  return (
-    <div className="child-container svg-container">
-      <svg
-        id="d3svg"
-        className="svg"
-        width={graph.width}
-        height={graph.height}
-      />
-    </div>
-  );
+  return <div id="d3-svg-cont" className="child-container svg-container" />;
 };
 
 export default D3Graph;
