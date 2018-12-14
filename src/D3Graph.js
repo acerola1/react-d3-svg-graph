@@ -3,23 +3,23 @@ import { select } from "d3-selection";
 import * as d3 from "d3";
 
 const renderD3Content = (svg, data, config) => {
-  select(svg)
-    .selectAll("rect")
-    .data(data.nodes, d => d.id)
+  let node = select(svg)
+    .selectAll(".node")
+    .data(data.nodes, d => d.id);
+
+  node
     .enter()
     .append("rect")
     .classed("node", true);
 
-  select(svg)
-    .selectAll("rect")
-    .data(data.nodes, d => d.id)
+  node
     .exit()
     .transition()
     .style("opacity", 0)
     .remove();
 
   select(svg)
-    .selectAll("rect")
+    .selectAll(".node")
     .data(data.nodes, d => d.id)
     .attr("id", d => "node" + d.id)
     .transition()
