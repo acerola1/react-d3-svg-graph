@@ -40,3 +40,11 @@ body {
   stroke: #000000;
   stroke-width: 1px;
 }
+
+.node-text {
+  stroke: none;
+  pointer-events: none;
+  font-size: 14px;
+  text-shadow: none;
+  fill: #3f3f3f;
+}

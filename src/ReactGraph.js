@@ -1,16 +1,27 @@
 import React from "react";
 
 const Node = ({ node, config, idx }) => {
+  let x = config.origin.x + idx * config.nodeSize.x + idx * config.margin.x;
   return (
-    <rect
-      id={node.id}
-      className="node"
-      x={config.origin.x + idx * config.nodeSize.x + idx * config.margin.x}
-      y={config.origin.y}
-      height={config.nodeSize.y}
-      width={config.nodeSize.x}
-      rx={5}
-    />
+    <g transform={`translate(${x},${config.origin.y})`}>
+      <rect
+        id={node.id}
+        className="node"
+        x={0}
+        y={0}
+        height={config.nodeSize.y}
+        width={config.nodeSize.x}
+        rx={5}
+      />
+      <text
+        textAnchor="middle"
+        x={config.nodeSize.y / 2}
+        y={config.nodeSize.y / 2}
+        className="node-text"
+      >
+        {node.id}
+      </text>
+    </g>
   );
 };
 

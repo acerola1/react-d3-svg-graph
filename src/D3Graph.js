@@ -24,6 +24,9 @@ const renderD3Content = (svg, data, config) => {
     .attr("id", d => "node" + d.id)
     .transition()
     .duration(500)
+    .delay(function(d, i) {
+      return i * 50;
+    })
     .attr(
       "x",
       (d, i) => config.origin.x + i * config.nodeSize.x + i * config.margin.x
