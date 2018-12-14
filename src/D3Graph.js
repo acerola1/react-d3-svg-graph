@@ -1,45 +1,45 @@
-import React, { useEffect } from "react";
-import { select } from "d3-selection";
-import * as d3 from "d3";
+import React, { useEffect } from 'react';
+import { select } from 'd3-selection';
+import * as d3 from 'd3';
 
 const renderD3Content = (svg, data, config) => {
   let node = select(svg)
-    .selectAll(".node")
+    .selectAll('.node')
     .data(data.nodes, d => d.id);
 
   node
     .enter()
-    .append("rect")
-    .classed("node", true);
+    .append('rect')
+    .classed('node', true);
 
   node
     .exit()
     .transition()
-    .style("opacity", 0)
+    .style('opacity', 0)
     .remove();
 
   select(svg)
-    .selectAll(".node")
+    .selectAll('.node')
     .data(data.nodes, d => d.id)
-    .attr("id", d => "node" + d.id)
+    .attr('id', d => 'node' + d.id)
     .transition()
     .duration(500)
     .delay(function(d, i) {
       return i * 50;
     })
     .attr(
-      "x",
+      'x',
       (d, i) => config.origin.x + i * config.nodeSize.x + i * config.margin.x
     )
-    .attr("y", config.origin.y)
-    .attr("rx", 5)
-    .attr("height", config.nodeSize.y)
-    .attr("width", config.nodeSize.x);
+    .attr('y', config.origin.y)
+    .attr('rx', 5)
+    .attr('height', config.nodeSize.y)
+    .attr('width', config.nodeSize.x);
 };
 
 const D3Graph = ({ graph, config }) => {
   useEffect(() => {
-    renderD3Content("#d3svg", graph, config);
+    renderD3Content('#d3svg', graph, config);
   });
 
   return (

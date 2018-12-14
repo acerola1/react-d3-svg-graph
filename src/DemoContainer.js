@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import GraphInput from "./GraphInput";
-import D3Graph from "./D3Graph";
-import ReactGraph from "./ReactGraph";
+import GraphInput from './GraphInput';
+import D3Graph from './D3Graph';
+import ReactGraph from './ReactGraph';
 
 const initialGraph = {
-  nodes: [{ id: "node1" }, { id: "node2" }, { id: "node3" }, { id: "node4" }]
+  nodes: [{ id: 'node1' }, { id: 'node2' }, { id: 'node3' }, { id: 'node4' }]
 };
 
 const initialConfig = {

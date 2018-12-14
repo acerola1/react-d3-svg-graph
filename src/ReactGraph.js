@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Node = ({ node, config, idx }) => {
   let x = config.origin.x + idx * config.nodeSize.x + idx * config.margin.x;
