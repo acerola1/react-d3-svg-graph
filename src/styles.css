@@ -37,6 +37,15 @@ body {
   margin-right: 10px;
   margin-bottom: 5px;
   align-self: flex-end;
+  min-height: 25%;
+}
+
+.labelled-field-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-items: stretch;
+  justify-content: flex-start;
 }
 
 .svg-container {
