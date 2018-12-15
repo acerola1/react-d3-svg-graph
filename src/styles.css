@@ -19,6 +19,24 @@ body {
 .child-container {
   flex: 1 1 0;
   display: flex;
+  margin-bottom: 5px;
+}
+
+.edit-container {
+  display: flex;
+  justify-items: stretch;
+  align-content: space-around;
+}
+
+.edit-container > textarea {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.edit-container > button {
+  margin-right: 10px;
+  margin-bottom: 5px;
+  align-self: flex-end;
 }
 
 .svg-container {

@@ -13,7 +13,7 @@ const GraphInput = ({ graph, config, setGraph, setConfig }) => {
   const [value1, setValue1] = useState(JSON.stringify(graph, null, '  '));
   const [value2, setValue2] = useState(JSON.stringify(config, null, '  '));
   return (
-    <div className="child-container">
+    <div className="child-container edit-container">
       <textarea value={value1} onChange={e => setValue1(e.target.value)} />
       <button
         onClick={() =>
