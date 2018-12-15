@@ -17,6 +17,7 @@ const Node = ({ node, config, idx }) => {
         textAnchor="middle"
         x={config.nodeSize.y / 2}
         y={config.nodeSize.y / 2}
+        dy={4}
         className="node-text"
       >
         {node.id}

@@ -22,10 +22,15 @@ body {
   margin-bottom: 5px;
 }
 
+.block-container {
+  display: flex;
+  justify-items: stretch;
+  width: 100%;
+}
+
 .edit-container {
   display: flex;
   justify-items: stretch;
-  align-content: space-around;
 }
 
 .edit-container > textarea {
@@ -37,15 +42,21 @@ body {
   margin-right: 10px;
   margin-bottom: 5px;
   align-self: flex-end;
-  min-height: 25%;
+  min-height: 35px;
 }
 
 .labelled-field-container {
+  flex: 1 1 0;
   display: flex;
   flex-direction: column;
   height: 100%;
   justify-items: stretch;
   justify-content: flex-start;
+}
+
+.area-label {
+  text-align: left;
+  margin-bottom: 5px;
 }
 
 .svg-container {

@@ -14,9 +14,9 @@ const GraphInput = ({ graph, config, setGraph, setConfig }) => {
   const [value2, setValue2] = useState(JSON.stringify(config, null, '  '));
   return (
     <div className="child-container">
-      <div className="edit-container">
+      <div className="block-container">
         <div className="labelled-field-container">
-          <div style={{ textAlign: 'left' }}>Graph</div>
+          <div className="area-label">Graph</div>
           <div style={{ flex: '1 0' }} className="edit-container">
             <textarea
               value={value1}
@@ -32,7 +32,7 @@ const GraphInput = ({ graph, config, setGraph, setConfig }) => {
           </div>
         </div>
         <div className="labelled-field-container">
-          <div style={{ textAlign: 'left' }}>Config</div>
+          <div className="area-label">Config</div>
           <div style={{ flex: '1 0' }} className="edit-container">
             <textarea
               value={value2}
