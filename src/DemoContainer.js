@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import GraphInput from "./GraphInput";
 import D3Graph from "./D3Graph";
 import ReactGraphSpring from "./ReactGraphSpring";
+import ReactGraph from "./ReactGraph";
 
 const initialGraph = {
   nodes: [{ id: "node1" }, { id: "node2" }, { id: "node3" }, { id: "node4" }]
@@ -26,6 +27,7 @@ const DemoContainer = () => {
       <GraphInput {...childProps} setGraph={setGraph} setConfig={setConfig} />
       <D3Graph {...childProps} />
       <ReactGraphSpring {...childProps} />
+      <ReactGraph {...childProps} />
     </div>
   );
 };

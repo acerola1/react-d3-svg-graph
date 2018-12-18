@@ -5,7 +5,8 @@ const Node = ({ node, config, idx, style }) => {
   let x = config.origin.x + idx * config.nodeSize.x + idx * config.margin.x;
   return (
     <Spring
-      from={{ x: x, y: config.origin.y }}
+      config={{ delay: idx * 100 }}
+      from={{ x: 0, y: config.origin.y }}
       to={{ x: x, y: config.origin.y }}
     >
       {props => (
