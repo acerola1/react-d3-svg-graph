@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const Node = ({ node, config, idx }) => {
   let x = config.origin.x + idx * config.nodeSize.x + idx * config.margin.x;
   return (
-    <g transform={`translate(${x},${config.origin.y})`}>
+    <g className="node" transform={`translate(${x},${config.origin.y})`}>
       <rect
         id={node.id}
-        className="node"
+        className="node-rect"
         x={0}
         y={0}
         height={config.nodeSize.y}
