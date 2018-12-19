@@ -1,11 +1,12 @@
 import React from "react";
-import { Transition, Spring } from "react-spring";
+import { Transition, Spring, config as springConfig } from "react-spring";
 
 const Node = ({ node, config, idx, style }) => {
   let x = config.origin.x + idx * config.nodeSize.x + idx * config.margin.x;
   return (
     <Spring
-      config={{ delay: idx * 100 }}
+      config={springConfig.wobbly}
+      delay={idx * 100}
       from={{ x: 0, y: config.origin.y }}
       to={{ x: x, y: config.origin.y }}
     >
@@ -51,13 +52,8 @@ const ReactGraphSpring = ({ graph, config }) => {
           enter={{ opacity: 1 }}
           leave={{ opacity: 0 }}
         >
-          {node => props => (
-            <Node
-              node={node}
-              config={config}
-              idx={graph.nodes.indexOf(node)}
-              style={props}
-            />
+          {(node, state, idx) => props => (
+            <Node node={node} config={config} idx={idx} style={props} />
           )}
         </Transition>
       </svg>
