@@ -79,10 +79,18 @@ body {
   stroke-width: 1px;
 }
 
+.node:hover {
+  fill: #124191;
+}
+
 .node-text {
   stroke: none;
   pointer-events: none;
   font-size: 14px;
   text-shadow: none;
   fill: #3f3f3f;
+}
+
+.node:hover > .node-text {
+  fill: #ffffff;
 }
