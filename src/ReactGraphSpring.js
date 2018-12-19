@@ -11,10 +11,14 @@ const Node = ({ node, config, idx, style }) => {
       to={{ x: x, y: config.origin.y }}
     >
       {props => (
-        <g style={style} transform={`translate(${props.x},${props.y})`}>
+        <g
+          className="node"
+          style={style}
+          transform={`translate(${props.x},${props.y})`}
+        >
           <rect
             id={node.id}
-            className="node"
+            className="node-rect"
             x={0}
             y={0}
             height={config.nodeSize.y}
