@@ -37,6 +37,7 @@ const renderD3Content = (svg, data, config) => {
     .attr('width', config.nodeSize.x);
 };
 
+
 const D3Graph = ({ graph, config }) => {
   useEffect(() => {
     renderD3Content('#d3svg', graph, config);
