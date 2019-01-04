@@ -40,12 +40,14 @@ const Node = ({ node, config, idx, style }) => {
             id={idx}
             x={10}
             y={config.nodeSize.y - config.button.y - 10}
+            title="Open"
           />
           <SvgButton
             config={config}
             id={idx}
             x={config.button.y + 20}
             y={config.nodeSize.y - config.button.y - 10}
+            title="Heal"
           />
         </g>
       )}

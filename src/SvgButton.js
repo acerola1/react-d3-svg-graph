@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Spring } from "react-spring";
 
-const SvgButton = ({ id, config, x, y }) => {
+const SvgButton = ({ id, config, x, y, title }) => {
   const [pressed, setPressed] = useState(false);
   const textX = config.button.x / 2;
   const textY = config.button.y / 2;
@@ -12,6 +12,7 @@ const SvgButton = ({ id, config, x, y }) => {
           transform={`translate(${x},${y})`}
           onClick={() => setPressed(!pressed)}
         >
+          <title>{title}</title>
           <rect
             id={id}
             className={`button-rect`}
