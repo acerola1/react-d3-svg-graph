@@ -13,6 +13,7 @@ const initialConfig = {
   width: 500,
   height: 150,
   nodeSize: { x: 60, y: 60 },
+  button: { x: 15, y: 15 },
   origin: { x: 20.5, y: 20.5 },
   margin: { x: 20 }
 };
