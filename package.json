@@ -1,7 +1,7 @@
 {
-  "name": "svg-graph-with-react",
+  "name": "svg-graph-react-scroll-poc",
   "version": "1.0.0",
-  "description": "Comparing React+D3js svg vs. pure React svg, using React hooks, Formic",
+  "description": "Experimenting with scroll events on a larger svg graph",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {

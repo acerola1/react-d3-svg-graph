@@ -27,11 +27,11 @@ const SvgButton = ({ id, config, x, y, title }) => {
             transform={`rotate(${rotation} ${textX}, ${textY})`}
             x={textX}
             y={textY}
-            dy={4}
+            dy={3}
             dx={0}
             className="button-symbol"
           >
-            {"\u2b9f"}
+            {"\u2335"}
           </text>
           <rect
             className={`button-rect-hover`}
