@@ -14,7 +14,9 @@ I want to compare in this project graph drawing components made with different t
 
 **Installing**
 Clone branch d3-vs-react-spring
+
 `git clone -b d3-vs-react-spring --gingle-branch https://github.com/acerola1/react-d3-svg-graph.git`
+
 After cloning you can install with `npm i` and you can run with `npm start`
 
 Try to delete and add nodes. Edit config parameters. And you can compare the different graphs updates.
