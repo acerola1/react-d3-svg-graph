@@ -1,5 +1,9 @@
 # react-d3-svg-graph
 
+---
+
+# Original goal - Comparing d3.js with react-spring
+
 Created with CodeSandbox https://codesandbox.io/s/ox7o6n5w8q
 
 I want to compare in this project graph drawing components made with different technologies.
@@ -8,6 +12,9 @@ I want to compare in this project graph drawing components made with different t
 2. Pure React component with react-spring animation
 3. Pure React without animation
 
+**Installing**
+Clone branch d3-vs-react-spring
+`git clone -b d3-vs-react-spring --gingle-branch https://github.com/acerola1/react-d3-svg-graph.git`
 After cloning you can install with `npm i` and you can run with `npm start`
 
 Try to delete and add nodes. Edit config parameters. And you can compare the different graphs updates.
