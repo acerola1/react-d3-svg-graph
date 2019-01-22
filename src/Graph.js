@@ -28,6 +28,7 @@ const Graph = ({ initialGraph, initialConfig }) => {
         ref={svgElement}
       >
         <Transition
+          native
           items={graph.nodes}
           keys={node => node.id}
           from={{ opacity: 0 }}

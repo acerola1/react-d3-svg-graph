@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { Spring } from "react-spring";
+import { Spring, animated as a } from "react-spring";
 
 const SvgButton = ({ id, config, x, y, title }) => {
   const [pressed, setPressed] = useState(false);
   const textX = config.button.x / 2;
   const textY = config.button.y / 2;
   return (
-    <Spring from={{ rotation: 0 }} to={{ rotation: pressed ? 180 : 0 }}>
+    <Spring native from={{ rotation: 0 }} to={{ rotation: pressed ? 180 : 0 }}>
       {({ rotation }) => (
-        <g
+        <a.g
           transform={`translate(${x},${y})`}
           onClick={() => setPressed(!pressed)}
         >
           <title>{title}</title>
-          <rect
+          <a.rect
             id={id}
             className={`button-rect`}
             x={0}
@@ -22,9 +22,11 @@ const SvgButton = ({ id, config, x, y, title }) => {
             width={config.button.x}
             rx={2}
           />
-          <text
+          <a.text
             textAnchor="middle"
-            transform={`rotate(${rotation} ${textX}, ${textY})`}
+            transform={rotation.interpolate(
+              rotation => `rotate(${rotation} ${textX}, ${textY})`
+            )}
             x={textX}
             y={textY}
             dy={3}
@@ -32,8 +34,8 @@ const SvgButton = ({ id, config, x, y, title }) => {
             className="button-symbol"
           >
             {"\u2335"}
-          </text>
-          <rect
+          </a.text>
+          <a.rect
             className={`button-rect-hover`}
             x={0}
             y={0}
@@ -41,7 +43,7 @@ const SvgButton = ({ id, config, x, y, title }) => {
             width={config.button.x}
             rx={2}
           />
-        </g>
+        </a.g>
       )}
     </Spring>
   );

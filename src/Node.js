@@ -1,23 +1,29 @@
 import React from "react";
-import { Spring, config as springConfig } from "react-spring";
+import {
+  Spring,
+  config as springConfig,
+  animated as a,
+  interpolate
+} from "react-spring";
 import SvgButton from "./SvgButton";
 
 const Node = ({ node, config, idx, style }) => {
   let y = config.origin.y + idx * config.nodeSize.y + idx * config.margin.y;
   return (
     <Spring
+      native
       config={springConfig.default}
       delay={idx * 100}
       from={{ x: config.origin.x, y: config.origin.y }}
       to={{ x: config.origin.x, y }}
     >
-      {props => (
-        <g
+      {({ x, y }) => (
+        <a.g
           className="node"
           style={style}
-          transform={`translate(${props.x},${props.y})`}
+          transform={interpolate([x, y], (x, y) => `translate(${x},${y})`)}
         >
-          <rect
+          <a.rect
             id={node.id}
             className="node-rect"
             x={0}
@@ -26,7 +32,7 @@ const Node = ({ node, config, idx, style }) => {
             width={config.nodeSize.x}
             rx={2}
           />
-          <text
+          <a.text
             textAnchor="middle"
             x={config.nodeSize.x / 2}
             y={15}
@@ -34,7 +40,7 @@ const Node = ({ node, config, idx, style }) => {
             className="node-text"
           >
             {node.id}
-          </text>
+          </a.text>
           <SvgButton
             config={config}
             id={idx}
@@ -49,7 +55,7 @@ const Node = ({ node, config, idx, style }) => {
             y={config.nodeSize.y - config.button.y - 10}
             title="Heal"
           />
-        </g>
+        </a.g>
       )}
     </Spring>
   );
