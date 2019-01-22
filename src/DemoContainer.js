@@ -42,7 +42,7 @@ const initialConfig = {
   height: 1500,
   nodeSize: { x: 60, y: 60 },
   button: { x: 15, y: 15 },
-  origin: { x: 20.5, y: 20.5 },
+  origin: { x: 20.5, y: 110.5 },
   margin: { y: 20 },
   nw: { start: { x: 130, y: 20 }, margin: 30 }
 };

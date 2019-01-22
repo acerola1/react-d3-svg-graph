@@ -39,6 +39,7 @@ const Graph = ({ initialGraph, initialConfig }) => {
           )}
         </Transition>
         <Transition
+          native
           items={graph.networks}
           keys={nw => nw.id}
           from={{ opacity: 0 }}
@@ -47,15 +48,21 @@ const Graph = ({ initialGraph, initialConfig }) => {
         >
           {(nw, state, idx) => props => (
             <Spring
-              from={{ x: config.nw.start.x, y: config.nw.start.y + yScroll }}
+              native
+              from={{
+                c: 80,
+                x: config.nw.start.x,
+                y: config.nw.start.y + yScroll
+              }}
               to={{
+                c: yScroll < 10 ? 80 : 200,
                 x: config.nw.start.x + 0.5 + config.nw.margin * idx,
                 y: config.nw.start.y + yScroll
               }}
             >
-              {({ x, y }) => (
+              {({ c, x, y }) => (
                 <Fragment>
-                  <line
+                  <animated.line
                     className="network"
                     x1={x}
                     y1={config.nw.start.y}
@@ -63,16 +70,17 @@ const Graph = ({ initialGraph, initialConfig }) => {
                     y2={height - config.margin.y}
                     style={props}
                   />
-                  <text
+                  <animated.text
                     textAnchor="start"
                     x={x}
                     y={y}
                     dx={8}
                     className="nw-text"
+                    fill={c.interpolate(c => `rgb(${c},${c},${c})`)}
                     style={{ writingMode: "tb", ...props }}
                   >
                     {nw.id}
-                  </text>
+                  </animated.text>
                 </Fragment>
               )}
             </Spring>
