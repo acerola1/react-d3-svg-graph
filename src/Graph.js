@@ -50,17 +50,17 @@ const Graph = ({ initialGraph, initialConfig }) => {
             <Spring
               native
               from={{
-                c: 80,
+                o: props.opacity,
                 x: config.nw.start.x,
                 y: config.nw.start.y + yScroll
               }}
               to={{
-                c: yScroll < 10 ? 80 : 200,
+                o: yScroll < 50 ? props.opacity : 0.3,
                 x: config.nw.start.x + 0.5 + config.nw.margin * idx,
                 y: config.nw.start.y + yScroll
               }}
             >
-              {({ c, x, y }) => (
+              {({ o, x, y }) => (
                 <Fragment>
                   <animated.line
                     className="network"
@@ -76,8 +76,8 @@ const Graph = ({ initialGraph, initialConfig }) => {
                     y={y}
                     dx={8}
                     className="nw-text"
-                    fill={c.interpolate(c => `rgb(${c},${c},${c})`)}
-                    style={{ writingMode: "tb", ...props }}
+                    fill="#323232"
+                    style={{ writingMode: "tb", opacity: o }}
                   >
                     {nw.id}
                   </animated.text>
