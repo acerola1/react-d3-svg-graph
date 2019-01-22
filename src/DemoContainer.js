@@ -21,7 +21,19 @@ const initialGraph = {
     { id: "network 1" },
     { id: "network 2" },
     { id: "network 3" },
-    { id: "network 4" }
+    { id: "network 4" },
+    { id: "network 5" },
+    { id: "network 6" },
+    { id: "network 7" },
+    { id: "network 8" },
+    { id: "network 9" },
+    { id: "network 10" },
+    { id: "network 11" },
+    { id: "network 12" },
+    { id: "network 13" },
+    { id: "network 14" },
+    { id: "network 15" },
+    { id: "network 16" }
   ]
 };
 

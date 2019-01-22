@@ -1,5 +1,5 @@
 import React, { Fragment, useRef, useState } from "react";
-import { Transition, animated } from "react-spring";
+import { Transition, Spring, animated } from "react-spring";
 
 import Node from "./Node";
 
@@ -46,26 +46,36 @@ const Graph = ({ initialGraph, initialConfig }) => {
           leave={{ opacity: 0 }}
         >
           {(nw, state, idx) => props => (
-            <Fragment>
-              <line
-                className="network"
-                x1={config.nw.start.x + config.nw.margin * idx}
-                y1={config.nw.start.y}
-                x2={config.nw.start.x + config.nw.margin * idx}
-                y2={height - config.margin.y}
-                style={props}
-              />
-              <text
-                textAnchor="start"
-                x={config.nw.start.x + config.nw.margin * idx}
-                y={config.nw.start.y + yScroll}
-                dx={8}
-                className="nw-text"
-                style={{ writingMode: "tb", ...props }}
-              >
-                {nw.id}
-              </text>
-            </Fragment>
+            <Spring
+              from={{ x: config.nw.start.x, y: config.nw.start.y + yScroll }}
+              to={{
+                x: config.nw.start.x + 0.5 + config.nw.margin * idx,
+                y: config.nw.start.y + yScroll
+              }}
+            >
+              {({ x, y }) => (
+                <Fragment>
+                  <line
+                    className="network"
+                    x1={x}
+                    y1={config.nw.start.y}
+                    x2={x}
+                    y2={height - config.margin.y}
+                    style={props}
+                  />
+                  <text
+                    textAnchor="start"
+                    x={x}
+                    y={y}
+                    dx={8}
+                    className="nw-text"
+                    style={{ writingMode: "tb", ...props }}
+                  >
+                    {nw.id}
+                  </text>
+                </Fragment>
+              )}
+            </Spring>
           )}
         </Transition>
       </svg>
