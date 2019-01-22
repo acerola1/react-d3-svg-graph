@@ -13,6 +13,7 @@ I want to compare in this project graph drawing components made with different t
 3. Pure React without animation
 
 **Installing**
+
 Clone branch d3-vs-react-spring
 
 `git clone -b d3-vs-react-spring --gingle-branch https://github.com/acerola1/react-d3-svg-graph.git`

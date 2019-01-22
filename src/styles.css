@@ -125,3 +125,8 @@ body {
 .node:hover .button-symbol {
   fill: #124191;
 }
+
+.network {
+  stroke: #d8d8d8;
+  stroke-width: 2px;
+}
