@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import GraphInput from "./GraphInput";
 import Graph from "./Graph";
 
 const initialGraph = {
@@ -48,9 +49,13 @@ const initialConfig = {
 };
 
 const DemoContainer = () => {
+  const [graph, setGraph] = useState(initialGraph);
+  const [config, setConfig] = useState(initialConfig);
+  const childProps = { graph, config };
   return (
     <div className="demo-container">
-      <Graph initialGraph={initialGraph} initialConfig={initialConfig} />
+      <GraphInput {...childProps} setGraph={setGraph} setConfig={setConfig} />
+      <Graph {...childProps} />
     </div>
   );
 };

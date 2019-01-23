@@ -3,23 +3,27 @@ import { Transition, Spring, animated } from "react-spring";
 
 import Node from "./Node";
 
-const Graph = ({ initialGraph, initialConfig }) => {
+const Graph = ({ graph, config }) => {
   const svgElement = useRef(null);
+  const parentElement = useRef(null);
   const [yScroll, setYScroll] = useState(0);
 
   const handleScroll = e => {
-    const bounding = svgElement.current.getBoundingClientRect();
-    setYScroll(bounding.y < 0 ? -bounding.y : 0);
+    const svgRect = svgElement.current.getBoundingClientRect();
+    const parentRect = parentElement.current.getBoundingClientRect();
+    setYScroll(parentRect.y - svgRect.y);
   };
 
-  let graph = initialGraph;
-  let config = initialConfig;
   let height =
     graph.nodes.length * (config.nodeSize.y + config.margin.y) +
     config.origin.y;
 
   return (
-    <div className="child-container svg-container" onScroll={handleScroll}>
+    <div
+      ref={parentElement}
+      className="graph-container svg-container"
+      onScroll={handleScroll}
+    >
       <svg
         id="d3svg"
         className="svg"

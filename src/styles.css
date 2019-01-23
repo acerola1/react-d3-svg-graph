@@ -22,6 +22,12 @@ body {
   margin-bottom: 5px;
 }
 
+.graph-container {
+  flex: 2 1 0;
+  display: flex;
+  margin-bottom: 5px;
+}
+
 .block-container {
   display: flex;
   justify-items: stretch;

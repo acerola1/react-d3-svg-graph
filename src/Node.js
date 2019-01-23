@@ -14,7 +14,7 @@ const Node = ({ node, config, idx, style }) => {
       native
       config={springConfig.default}
       delay={idx * 100}
-      from={{ x: config.origin.x, y: config.origin.y }}
+      from={{ x: 0, y: y }}
       to={{ x: config.origin.x, y }}
     >
       {({ x, y }) => (
