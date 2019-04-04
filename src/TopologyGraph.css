@@ -1,0 +1,54 @@
+.topology-svg {
+  font-family: Nokia Pure Text Medium,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.aspect-rect {
+  fill: #f6f6f6;
+  stroke: #cacaca;
+  stroke-width: 1px;
+  stroke-dasharray: 9,3;
+  /*cursor: pointer;*/
+}
+
+.aspect-header-rect {
+  fill: #dddddd;
+  /*cursor: pointer;*/
+}
+
+.button-rect {
+  fill: #dddddd;
+  cursor: pointer;
+}
+
+.button-symbol {
+  font-size: 20px;
+  fill: #ffffff;
+  stroke: none;
+  user-select: none;
+}
+
+.node:hover .button-symbol {
+  fill: #124191;
+}
+
+.button-symbol {
+  font-size: 20px;
+  fill: #000000;
+  stroke: none;
+  user-select: none;
+}
+
+.node:hover .button-symbol {
+  fill: #124191;
+}
+
+.aspect-scale {
+  fill: #4d4d4d;
+}
+
+.button-icon{
+  fill: #4d4d4d;
+}
+
