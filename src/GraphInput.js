@@ -31,7 +31,7 @@ const GraphInput = ({ graph, config, setGraph, setConfig }) => {
             </button>
           </div>
         </div>
-        <div className="labelled-field-container">
+        <div className="labelled-field-container" style={{display: 'none'}}>
           <div className="area-label">Config</div>
           <div style={{ flex: "1 0" }} className="edit-container">
             <textarea

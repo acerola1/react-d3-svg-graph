@@ -90,7 +90,7 @@ const TopologyGraph: FC<Props> = ({config, graph}) => {
           <AspectNode
             aspect={item}
             style={props}
-            key={item.id}
+            key={key}
             get={get}
             idx={idx}
             opened={openedAspectId === item.id}

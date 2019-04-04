@@ -37,7 +37,7 @@ body {
 .edit-container {
   display: flex;
   justify-items: stretch;
-  height: 200px;
+  height: 300px;
 }
 
 .edit-container > textarea {
